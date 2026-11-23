@@ -1,0 +1,12 @@
+# 认证中心本地配置：授权服务器与 Spring Security 之间存在配置类依赖，
+# 放开循环引用限制避免启动期报 BeanCurrentlyInCreationException
+spring:
+  main:
+    allow-circular-references: true
+    # Spring Security OAuth2 的 ClientDetailsServiceConfiguration 也会注册
+    # clientDetailsService，这里复用本项目的 JdbcClientDetailsService 实现
+    allow-bean-definition-overriding: true
+
+logging:
+  level:
+    org.springframework.security: info
