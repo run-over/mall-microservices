@@ -1,0 +1,26 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: mall-stock
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        namespace: mall-dev
+        group: MALL_GROUP
+      config:
+        namespace: mall-dev
+        group: MALL_GROUP
+        file-extension: yaml
+        # 共享配置：所有服务公用的数据源、MyBatis-Plus、Feign、链路追踪等
+        shared-configs:
+          - data-id: mall-common.yaml
+            group: MALL_GROUP
+            refresh: true
+        # 分布式事务相关配置仅在参与全局事务的服务中加载
+        extension-configs:
+          - data-id: mall-seata.yaml
+            group: MALL_GROUP
+            refresh: true
