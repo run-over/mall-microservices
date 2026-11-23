@@ -1,0 +1,21 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: mall-delivery
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        namespace: mall-dev
+        group: MALL_GROUP
+      config:
+        namespace: mall-dev
+        group: MALL_GROUP
+        file-extension: yaml
+        # 共享配置：所有服务公用的数据源、MyBatis-Plus、Feign、链路追踪等
+        shared-configs:
+          - data-id: mall-common.yaml
+            group: MALL_GROUP
+            refresh: true
