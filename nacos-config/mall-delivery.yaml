@@ -1,0 +1,10 @@
+# =====================================================================
+# mall-delivery 专属配置（dataId: mall-delivery.yaml，group: MALL_GROUP）
+# 每个服务只连接自己的库，落实"一服务一库"的边界
+# =====================================================================
+server:
+  port: 8086
+
+spring:
+  datasource:
+    url: "jdbc:mysql://127.0.0.1:3306/mall_delivery?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"

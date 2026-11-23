@@ -1,0 +1,13 @@
+# =====================================================================
+# 监控台专属配置（dataId: mall-admin.yaml，group: MALL_GROUP）
+# =====================================================================
+server:
+  port: 8090
+
+spring:
+  boot:
+    admin:
+      ui:
+        title: 电商交易微服务监控台
+        brand: Mall Cloud Admin
+      # 演示环境不做登录保护；生产环境请配合 spring-boot-starter-security 开启

@@ -1,0 +1,52 @@
+# =====================================================================
+# 网关专属配置（dataId: mall-gateway.yaml，group: MALL_GROUP）
+# 静态路由只保留认证中心；六个业务服务的路由放在
+# mall-gateway-routes.json 中，由 Nacos 动态路由仓库热加载
+# =====================================================================
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 关闭按服务名自动生成路由，改为显式配置，避免暴露内部接口
+          enabled: false
+      routes:
+        # 认证中心：登录、刷新令牌、注销
+        - id: mall-auth
+          uri: lb://mall-auth
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=2
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+            maxAge: 3600
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 10s
+    sentinel:
+      # 网关维度的流控规则（以路由 ID 为资源）
+      datasource:
+        gw-flow:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            namespace: mall-dev
+            group-id: MALL_GROUP
+            data-id: mall-sentinel-gw.json
+            rule-type: gw-flow
+
+# 网关调用认证中心校验令牌的地址
+mall:
+  auth:
+    # 令牌校验地址：单机部署直接指向认证服务，改端口时只需改这一处
+    check-token-url: http://127.0.0.1:9000/oauth/check_token
+  gateway:
+    route-group: MALL_GROUP

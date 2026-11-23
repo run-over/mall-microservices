@@ -1,0 +1,11 @@
+[
+  {
+    "resource": "productDetail",
+    "paramIdx": 0,
+    "count": 5,
+    "durationInSec": 1,
+    "controlBehavior": 0,
+    "maxQueueingTimeMs": 0,
+    "paramFlowItemList": []
+  }
+]

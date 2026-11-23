@@ -1,0 +1,128 @@
+[
+  {
+    "id": "mall-user",
+    "uri": "lb://mall-user",
+    "order": 0,
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/api/user/**"
+        }
+      }
+    ],
+    "filters": [
+      {
+        "name": "StripPrefix",
+        "args": {
+          "_genkey_0": "2"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mall-product",
+    "uri": "lb://mall-product",
+    "order": 0,
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/api/product/**"
+        }
+      }
+    ],
+    "filters": [
+      {
+        "name": "StripPrefix",
+        "args": {
+          "_genkey_0": "2"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mall-stock",
+    "uri": "lb://mall-stock",
+    "order": 0,
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/api/stock/**"
+        }
+      }
+    ],
+    "filters": [
+      {
+        "name": "StripPrefix",
+        "args": {
+          "_genkey_0": "2"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mall-order",
+    "uri": "lb://mall-order",
+    "order": 0,
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/api/order/**"
+        }
+      }
+    ],
+    "filters": [
+      {
+        "name": "StripPrefix",
+        "args": {
+          "_genkey_0": "2"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mall-payment",
+    "uri": "lb://mall-payment",
+    "order": 0,
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/api/payment/**"
+        }
+      }
+    ],
+    "filters": [
+      {
+        "name": "StripPrefix",
+        "args": {
+          "_genkey_0": "2"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mall-delivery",
+    "uri": "lb://mall-delivery",
+    "order": 0,
+    "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "_genkey_0": "/api/delivery/**"
+        }
+      }
+    ],
+    "filters": [
+      {
+        "name": "StripPrefix",
+        "args": {
+          "_genkey_0": "2"
+        }
+      }
+    ]
+  }
+]

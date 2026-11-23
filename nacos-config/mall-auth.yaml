@@ -1,0 +1,12 @@
+# =====================================================================
+# 认证中心专属配置（dataId: mall-auth.yaml，group: MALL_GROUP）
+# =====================================================================
+server:
+  port: 9000
+
+spring:
+  datasource:
+    url: "jdbc:mysql://127.0.0.1:3306/mall_auth?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true"
+
+# 令牌有效期由 oauth_client_details 表控制（access 7200 秒、refresh 604800 秒），
+# 认证中心本身无状态，不需要额外会话配置

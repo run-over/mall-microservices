@@ -1,0 +1,12 @@
+[
+  {
+    "resource": "mall-order",
+    "resourceMode": 0,
+    "grade": 1,
+    "count": 30,
+    "intervalSec": 1,
+    "controlBehavior": 0,
+    "burst": 0,
+    "maxQueueingTimeoutMs": 0
+  }
+]
